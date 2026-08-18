@@ -1,0 +1,17 @@
+---
+- name: Deploy Notes Application
+  hosts: all
+  become: yes
+  gather_facts: yes
+  roles:
+    - role: ../roles/notes-app  # Указываем относительный путь к роли
+      tags:
+        - deploy
+        - notes-app
+  post_tasks:
+    - name: Display deployment summary
+      ansible.builtin.debug:
+        msg: |
+          ✅ Application deployed successfully!
+          📍 URL: http://{{ ansible_default_ipv4.address }}:8000
+          📊 Health: curl http://{{ ansible_default_ipv4.address }}:8000/healthz

@@ -1,0 +1,9 @@
+---
+app_db_password: "{{ vault_staging_db_password }}"
+app_log_level: DEBUG
+app_shutdown_delay: 5
+firewall_allowed_ports:
+  - 22
+  - 8000
+  - 5432
+cron_schedule: "0 3 * * *"

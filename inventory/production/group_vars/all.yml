@@ -1,0 +1,13 @@
+---
+app_db_password: "{{ vault_production_db_password }}"
+app_log_level: WARNING
+app_shutdown_delay: 10
+firewall_allowed_ports:
+  - 22
+  - 8000
+cron_schedule: "0 2 * * *"
+docker_daemon_json:
+  log-driver: json-file
+  log-opts:
+    max-size: "100m"
+    max-file: "5"
